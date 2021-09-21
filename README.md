@@ -1,5 +1,5 @@
-# Résumé for Harsh Kapadia
+# Résumé for Harsh Shah
 
-Résumé hosted at [harshkapadia2.github.io/resume](https://harshkapadia2.github.io/resume/).
+Résumé hosted at [Harsh-H-Shah.github.io/resume](https://Harsh-H-Shah.github.io/resume/).
 
-Credits: [jai-dewani/resume](https://github.com/jai-dewani/resume)
+Credits: [HarshKapadia2/resume](https://github.com/HarshKapadia2/resume)

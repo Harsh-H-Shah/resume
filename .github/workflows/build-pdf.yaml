@@ -36,7 +36,7 @@ jobs:
                   mkdir build 
                   cp *.pdf build/ 
                   cp index.html build/
-                  mv "build/resume.pdf" "build/Résumé for Harsh Kapadia.pdf"
+                  mv "build/resume.pdf" "build/Résumé for Harsh Shah.pdf"
                   ls build/
 
             - name: Git add

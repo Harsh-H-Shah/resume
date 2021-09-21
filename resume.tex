@@ -1,258 +1,271 @@
-%-------------------------
-% Resume in Latex
-% Author: Jake Gutierrez
-% Based off of: https://github.com/sb2nov/resume
-% License: MIT
-%------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Deedy - One Page Two Column Resume
+% LaTeX Template
+% Version 1.2 (16/9/2014)
+%
+% Original author:
+% Debarghya Das (http://debarghyadas.com)
+%
+% Original repository:
+% https://github.com/deedydas/Deedy-Resume
+%
+% IMPORTANT: THIS TEMPLATE NEEDS TO BE COMPILED WITH XeLaTeX
+%
+% This template uses several fonts not included with Windows/Linux by
+% default. If you get compilation errors saying a font is missing, find the line
+% on which the font is used and either change it to a font included with your
+% operating system or comment the line out to use the default font.
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+% TODO:
+% 1. Integrate biber/bibtex for article citation under publications.
+% 2. Figure out a smoother way for the document to flow onto the next page.
+% 3. Add styling information for a "Projects/Hacks" section.
+% 4. Add location/address information
+% 5. Merge OpenFont and MacFonts as a single sty with options.
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% CHANGELOG:
+% v1.1:
+% 1. Fixed several compilation bugs with \renewcommand
+% 2. Got Open-source fonts (Windows/Linux support)
+% 3. Added Last Updated
+% 4. Move Title styling into .sty
+% 5. Commented .sty file.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Known Issues:
+% 1. Overflows onto second page if any column's contents are more than the
+% vertical limit
+% 2. Hacky space on the first bullet point on the second column.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%------------------------
-% Original Overleaf template: https://www.overleaf.com/latex/templates/jakes-resume-anonymous/cstpnrbkhndn
-%------------------------
 
-\documentclass[letterpaper,11pt]{article}
-
-\usepackage{latexsym}
-\usepackage[empty]{fullpage}
-\usepackage{titlesec}
-\usepackage{marvosym}
-\usepackage[usenames,dvipsnames]{color}
-\usepackage{verbatim}
-\usepackage{enumitem}
-\usepackage[hidelinks]{hyperref}
+\documentclass[]{deedy-resume-openfont}
 \usepackage{fancyhdr}
-\usepackage[english]{babel}
-\usepackage{tabularx}
-\usepackage{fontawesome5}
-\usepackage{multicol}
-\setlength{\multicolsep}{-3.0pt}
-\setlength{\columnsep}{-1pt}
-\input{glyphtounicode}
-
-\usepackage{xcolor}
-\hypersetup{colorlinks,urlcolor=blue}
-
-
-%----------FONT OPTIONS----------
-% sans-serif
-% \usepackage[sfdefault]{FiraSans}
-% \usepackage[sfdefault]{roboto}
-% \usepackage[sfdefault]{noto-sans}
-% \usepackage[default]{sourcesanspro}
-
-% serif
-% \usepackage{CormorantGaramond}
-% \usepackage{charter}
-
-
+ 
 \pagestyle{fancy}
-\fancyhf{} % clear all header and footer fields
-\fancyfoot{}
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}
-
-% Adjust margins
-\addtolength{\oddsidemargin}{-0.6in}
-\addtolength{\evensidemargin}{-0.5in}
-\addtolength{\textwidth}{1.19in}
-\addtolength{\topmargin}{-.7in}
-\addtolength{\textheight}{1.4in}
-
-\urlstyle{same}
-
-\raggedbottom
-\raggedright
-\setlength{\tabcolsep}{0in}
-
-% Sections formatting
-\titleformat{\section}{
-  \vspace{-4pt}\scshape\raggedright\large\bfseries
-}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
-
-% Ensure that generate pdf is machine readable/ATS parsable
-\pdfgentounicode=1
-
-%-------------------------
-% Custom commands
-\newcommand{\resumeItem}[1]{
-  \item\small{
-    {#1 \vspace{-2pt}}
-  }
-}
-
-\newcommand{\classesList}[4]{
-    \item\small{
-        {#1 #2 #3 #4 \vspace{-2pt}}
-  }
-}
-
-\newcommand{\resumeSubheading}[4]{
-  \vspace{-2pt}\item
-    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & \textbf{\small #2} \\
-      \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-7pt}
-}
-
-\newcommand{\resumeSubSubheading}[2]{
-    \item
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \textit{\small#1} & \textit{\small #2} \\
-    \end{tabular*}\vspace{-7pt}
-}
-
-\newcommand{\resumeProjectHeading}[2]{
-    \item
-    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
-      \small#1 & \textbf{\small #2}\\
-    \end{tabular*}\vspace{-7pt}
-}
-
-\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
-
-\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
-\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
-
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
-\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
-
-%-------------------------------------------
-%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
+\fancyhf{}
+ 
 \begin{document}
 
-%----------HEADING----------
-% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-%   \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} & Email : \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
-%   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
-% \end{tabular*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     LAST UPDATED DATE
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\lastupdated
 
-\begin{center}
-    {\Huge \scshape Harsh Kapadia} \\ \vspace{2pt}
-    \small
-    \faPhone \href{tel:+917506412914}{\raisebox{-0.1\height}\ +91 75064 12914} ~
-    \faEnvelope \href{mailto:harshgkapadia@gmail.com}{\raisebox{-0.2\height}\  harshgkapadia@gmail.com} ~
-    \faLinkedin \href{https://linkedin.com/in/harshgkapadia}{\raisebox{-0.2\height}\ linkedin.com/in/harshgkapadia} ~
-    \faGithub \href{https://github.com/HarshKapadia2}{\raisebox{-0.2\height}\ github.com/HarshKapadia2}
-    \vspace{-8pt}
-\end{center}
-
-
-%-----------EDUCATION-----------
-\section{Education}
-  \resumeSubHeadingListStart
-    \resumeSubheading
-        {Mumbai University}{2018 -- 2022}
-        {Bachelor of Engineering in Information Technology}{Mumbai, India}
-    \resumeSubHeadingListEnd
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     TITLE NAME
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\namesection{}{Harsh Shah}{ \urlstyle{same}Mumbai-400092 | 9820460609 \\  \href{https://github.com/harsh010501}{ github} | \href{mailto:harshmkvviv@gmail.com}{harshmkvviv@gmail.com}
+}
 
 
-%-----------SKILLS-----------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     COLUMN ONE
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{minipage}[t]{0.33\textwidth} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     EDUCATION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Education} 
+
+\subsection{Mumbai University}
+\descript{Bachelor in Engineering}
+\location{Mumbai \\
+GPA: 10.0 (1st sem)
+}
+\sectionsep
+
+\subsection{Mumbai University}
+\descript{Intermediate}
+\location{May 2019 | Mumbai\\
+Higher Secondary Percent: 77\%}
+\sectionsep
+
+\subsection{MKVVIV (CBSE)}
+\location{May 2017 | Mumbai \\
+CGPA: 9.6 / 10.0}
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     LINKS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Links}
+LinkedIn://  \href{https://www.linkedin.com/in/harsh-shah-84492a144/}{\bf Harsh Shah} \\
+Figma :// \href{https://www.figma.com/files/user/972091920433097624?fuid=972091920433097624}{\bf harsh shah} \\
+LeetCode://  \href{https://leetcode.com/harsh010501/}{\bf harsh010501} \\
+Twitter://  \href{https://twitter.com/HarshSh96633511}{\bf @HarshSh96633511} \\
+Hackerearth :// \href{https://www.hackerearth.com/@harsh010501}{\bf harsh010501} \\
+HackerRank :// \href{https://www.hackerrank.com/harsh_1501}{\bf harsh\_1501} \\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     COURSEWORK
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \section{Coursework}
+% \subsection{Graduate}
+% Advanced Machine Learning \\
+% Open Source Software Engineering \\
+% Advanced Interactive Graphics \\
+% Compilers + Practicum \\
+% Cloud Computing \\
+% Evolutionary Computation \\
+% Defending Computer Networks \\
+% Machine Learning \\
+% \sectionsep
+
+% \subsection{Undergraduate}
+% Information Retrieval \\
+% Operating Systems \\
+% Artificial Intelligence + Practicum \\
+% Functional Programming \\
+% Computer Graphics + Practicum \\
+% {\footnotesize \textit{\textbf{(Research Asst. \& Teaching Asst 2x) }}} \\
+% Unix Tools and Scripting \\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     SKILLS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Skills}
-    \begin{itemize}[leftmargin=0.2in, label={}]
-    {\item{
-        \textbf{Web}: React.js, HTML, CSS, JS, Node.js (Express.js), Flask \\
-        \textbf{Databases}: MySQL, MongoDB \\
-        \textbf{Platforms}: Firebase, Heroku \\
-        \textbf{Tools}: Git, GitHub, Adobe Illustrator, Figma \\
-        \textbf{Languages}: JavaScript, Java
-    }}
-    \end{itemize}
-\vspace{-16pt}
+\subsection{Programming}
+Reactjs \textbullet{}  Redux \\Typescript\textbullet{}  Javascript \\ Python \textbullet{} Express \\
+PostgreSQL \textbullet{} Redis \\
+Git \textbullet{} Github \\
+\location{Familiar:}
+Bootstrap \textbullet{} Framer \\ Figma \textbullet{} TailwindCSS
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     AWARDS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Awards} 
+\textbullet{} Silver Zone French \\ Language Olympiad \\ won silver medal \\ for securing 2nd rank \\ at institute level
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%     LANGUAGES
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Languages}
+English \textbullet{}  French \\ Hindi \textbullet{} Gujarati \\
 
 
-%-----------EXPERIENCE-----------
-\section{Experience}
-    \resumeSubHeadingListStart
-        \resumeSubheading
-            {NanoNet Technologies Inc.}{Aug 2021 - present}
-            {Software Intern}{}
-            \resumeItemListStart
-                \resumeItem{Migrated API specification from Swagger 2.0 to OpenAPI 3.1.0.}
-            \resumeItemListEnd
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-        \resumeSubheading
-            {GRT Global Logistics Pvt. Ltd.}{Dec 2019}
-            {Software Testing Intern}{}
-            \resumeItemListStart
-                \resumeItem{Tested ERP software.}
-            \resumeItemListEnd
-    \resumeSubHeadingListEnd
-\vspace{-16pt}
+%     INTERESTS
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Interests}
+Painting \textbullet{} Designing \\ Swimming \textbullet{} Music \\
 
 
-%-----------PROJECTS-----------
-\section{Projects}
-    \vspace{-5pt}
-    \resumeSubHeadingListStart
-        \resumeProjectHeading
-            {\textbf{git\_basics} $|$ \emph{Asciidoctor, CSS, JS, GitHub Pages}}{Mar 2020 -- present}
-            \resumeItemListStart
-                \resumeItem{A PWA and TWA for Git and GitHub concepts and commands.}
-                \resumeItem{Explained the internal working of Git.}
-                \resumeItem{\textbf{500+ installs on Google Play and 80+ stars on GitHub.}}
-                \resumeItem{\href{https://harshkapadia2.github.io/git_basics}{PWA} $|$  \href{https://play.google.com/store/apps/details?id=com.harsh_kapadia.git_basics}{Google Play Store} $|$ \href{https://github.com/HarshKapadia2/git_basics}{GitHub}}
-            \resumeItemListEnd
-        \vspace{-13pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     COLUMN TWO
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-        \resumeProjectHeading
-            {\textbf{HPS Gems} $|$ \emph{HTML, CSS, JS, PHP, MySQL, Heroku}}{Oct 2020 -- Dec 2020}
-            \resumeItemListStart
-                \resumeItem{A JAMstack e-Commerce web app dealing in raw gemstones.}
-                \resumeItem{Implemented Fetch API and Web Components API.}
-                \resumeItem{\href{https://hps-gems.herokuapp.com}{Web app} $|$ \href{https://github.com/HarshKapadia2/hps-gems}{GitHub}}
-            \resumeItemListEnd
-        \vspace{-13pt}
-    
-        \resumeProjectHeading
-            {\textbf{Preview Markdown} $|$ \emph{React.js, CSS, JS, GitHub Pages}}{Jun 2021}
-            \resumeItemListStart
-                \resumeItem{Renders GitHub-styled markdown live.}
-                \resumeItem{Supports GitHub's light and dark themed Markdown rendering.}
-                \resumeItem{\href{https://harshkapadia2.github.io/preview-markdown}{Web app} $|$ \href{https://github.com/HarshKapadia2/preview-markdown}{GitHub}}
-            \resumeItemListEnd
-        \vspace{-13pt}
+\end{minipage} 
+\hfill
+\begin{minipage}[t]{0.66\textwidth} 
 
-        \resumeProjectHeading
-            {\textbf{Attendance Manager} $|$ \emph{Flask, Firebase, Heroku}}{Apr 2020 -- May 2020}
-            \resumeItemListStart
-                \resumeItem{A SSR web app for managing student attendance.}
-                \resumeItem{\href{https://attendance-management-flask.herokuapp.com}{Web app} $|$ \href{https://github.com/HarshKapadia2/attendance_management}{GitHub}}
-            \resumeItemListEnd
-    \resumeSubHeadingListEnd
-\vspace{-15pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     EXPERIENCE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Organisations}
+
+\runsubsection{Devsnest}
+\descript{| Trainee }
+\location{Mar 2021 – Present }
+\vspace{\topsep} % Hacky fix for awkward extra vertical space
+\begin{tightemize}
+\item Frontend development - Wrote and reviewed code using Reactjs, Redux and Javascript.
+\item Practiced DSA problems and promoted peer learning in team. 
+\item Participated in 6 hackathons where I led the designing of the project.
+\end{tightemize}
+\sectionsep
+
+\runsubsection{Viral Fission}
+\descript{| Marketing intern}
+\location{Jun 2021 – Present | Mumbai}
+\begin{tightemize}
+\item Performed promotion activities for brands like Unacademy, Pepsi, CloseUp, Spotify.
+\end{tightemize}
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Community Activity
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Community activity}
+
+\runsubsection{Google developer student clubs}
+\descript{| Core team member}
+\location{Aug 2021 – Present | Mumbai}
+\begin{tightemize}
+\item Designed and helped in organizing an event to introduce Google Developer Students Club TSEC chapter.
+\end{tightemize}
+\sectionsep
+
+\runsubsection{CodeCell}
+\descript{| Junior Committee member}
+\location{Jul 2021 – Present | Mumbai}
+\begin{tightemize}
+\item Organized an online technical event named Bidwiser. Curated questions and designed workflow of the event.
+\end{tightemize}
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Projects
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Personal Projects}
+
+\runsubsection{\href{https://asyncstore.netlify.app/}{E-commerce webiste}} \\
+\location{August 2021}
+Designed an E-commerce website along with a team of 6 developers. Created a Figma design for the website according to the basic rules of design. Design included 5 pages consisting landing, cart, address, product and orders pages.
+\sectionsep
+
+\runsubsection{\href{https://async-2048.netlify.app/}{2048 game}} \\
+\location{August 2021}
+Designed a 2048 game along with a team of 4 developers. Designed the UI part using Figma, Framer and canva. Wrote and reviewed code in CSS and SASS. Applied the animations using javascript libraries such as animejs and framer motion.
+\sectionsep
+
+\runsubsection{\href{https://github.com/Team-Asyncc/Whiteboard-AsyncTeam-1}{Whiteboard}}  \\
+\location{Jul 2021}
+Designed a white board using vanilla JS along with a team of 5 people. Wrote and reviewed code for CSS. Developed function for background color change. 
+\sectionsep
+
+\runsubsection{\href{https://github.com/harsh010501/Star-wars-Aimbooster}{Star-wars Aimbooster}} \\
+\location{Jun 2021}
+Developed a \href{http://www.aimbooster.com/}{Aimbooster} game using vanilla JS. It is based on shooting as many targets in the stipulated time. It has features like score display and storing high scores on local storage so you don't lose any highscore by refreshing the page.   
+\sectionsep
+
+\runsubsection{\href{https://github.com/Team-Asyncc/Brick-Breaker-Game-AsyncTeam1}{Brick-breaker game}} \\
+\location{Jun 2021}
+Designed a Brick-breaker game using vanilla JS along with a team of 5 people. Developed the design patterns using Figma and deployed them using CSS. 
+\sectionsep
 
 
-%-----------COMMUNITY ACTIVITY-----------
-\section{Community Activity}
-    \resumeSubHeadingListStart
-        \resumeSubheading
-            {Our Tech Community (OTC)}{Jan 2020 -- present}
-            {Founder}{}
-            \resumeItemListStart
-                \resumeItem{A Tech-loving open-to-all community.}
-                \resumeItem{\textbf{Hosted more than 45 weekly \href{https://catchup.ourtech.community}{OTC CatchUp} sessions} involving project showcases and technical discussions.}
-            \resumeItemListEnd
-    
-        \resumeSubheading
-            {Talks}{Jun 2020 -- present}
-            {Speaker}{}
-            \resumeItemListStart
-                \resumeItem{\textbf{Taught over 600 people} in more than 12 sessions and workshops at various technical meetups on Git and GitHub.}
-                \resumeItem{\href{https://harshkapadia2.github.io/talks/}{Talk details} $|$ \href{https://www.youtube.com/HarshKapadia}{YouTube}}
-            \resumeItemListEnd
-
-        \resumeSubheading
-            {TSEC CodeCell}{Sep 2019 -- present}
-            {Senior Committee Member}{}
-            \resumeItemListStart
-                \resumeItem{Organised two hackathons, TSEC Hacks 2020 and 2021.}
-                \resumeItem{Conducted a workshop on Git and GitHub. (\href{https://www.youtube.com/watch?v=ArOKEf8nkfw}{YouTube})}
-            \resumeItemListEnd
-    \resumeSubHeadingListEnd
-\vspace{-16pt}
-
-
-\end{document}
+\end{minipage} 
+\end{document}  \documentclass[]{article}
