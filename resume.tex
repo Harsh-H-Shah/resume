@@ -1,12 +1,59 @@
-% Intro Options
-\ProvidesClass{deedy-resume-openfont}[2014/04/30 CV class]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Deedy - One Page Two Column Resume
+% LaTeX Template
+% Version 1.2 (16/9/2014)
+%
+% Original author:
+% Debarghya Das (http://debarghyadas.com)
+%
+% Original repository:
+% https://github.com/deedydas/Deedy-Resume
+%
+% IMPORTANT: THIS TEMPLATE NEEDS TO BE COMPILED WITH XeLaTeX
+%
+% This template uses several fonts not included with Windows/Linux by
+% default. If you get compilation errors saying a font is missing, find the line
+% on which the font is used and either change it to a font included with your
+% operating system or comment the line out to use the default font.
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+% TODO:
+% 1. Integrate biber/bibtex for article citation under publications.
+% 2. Figure out a smoother way for the document to flow onto the next page.
+% 3. Add styling information for a "Projects/Hacks" section.
+% 4. Add location/address information
+% 5. Merge OpenFont and MacFonts as a single sty with options.
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% CHANGELOG:
+% v1.1:
+% 1. Fixed several compilation bugs with \renewcommand
+% 2. Got Open-source fonts (Windows/Linux support)
+% 3. Added Last Updated
+% 4. Move Title styling into .sty
+% 5. Commented .sty file.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Known Issues:
+% 1. Overflows onto second page if any column's contents are more than the
+% vertical limit
+% 2. Hacky space on the first bullet point on the second column.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\documentclass[]{article}
+
 \NeedsTeXFormat{LaTeX2e}
 \DeclareOption{print}{\def\@cv@print{}}
 \DeclareOption*{%
   \PassOptionsToClass{\CurrentOption}{article}
 }
 \ProcessOptions\relax
-\LoadClass{article}
+% \LoadClass{article}
 
 % Package Imports
 \usepackage[hmargin=1.25cm, vmargin=0.75cm]{geometry}
@@ -22,7 +69,7 @@
 \definecolor{date}{HTML}{666666} 
 \definecolor{primary}{HTML}{2b2b2b} 
 \definecolor{headings}{HTML}{6A6A6A}
-\definecolor{subheadings}{HTML}{333333}
+\definecolor{subheadings}{HTML}{363636}
 
 % Set main fonts
 \usepackage{fontspec}
@@ -83,55 +130,6 @@ Last Updated on \today
 \vspace{-\topsep}\begin{itemize}\itemsep1pt \parskip0pt \parsep0pt}
 {\end{itemize}\vspace{-\topsep}}
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Deedy - One Page Two Column Resume
-% LaTeX Template
-% Version 1.2 (16/9/2014)
-%
-% Original author:
-% Debarghya Das (http://debarghyadas.com)
-%
-% Original repository:
-% https://github.com/deedydas/Deedy-Resume
-%
-% IMPORTANT: THIS TEMPLATE NEEDS TO BE COMPILED WITH XeLaTeX
-%
-% This template uses several fonts not included with Windows/Linux by
-% default. If you get compilation errors saying a font is missing, find the line
-% on which the font is used and either change it to a font included with your
-% operating system or comment the line out to use the default font.
-% 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 
-% TODO:
-% 1. Integrate biber/bibtex for article citation under publications.
-% 2. Figure out a smoother way for the document to flow onto the next page.
-% 3. Add styling information for a "Projects/Hacks" section.
-% 4. Add location/address information
-% 5. Merge OpenFont and MacFonts as a single sty with options.
-% 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% CHANGELOG:
-% v1.1:
-% 1. Fixed several compilation bugs with \renewcommand
-% 2. Got Open-source fonts (Windows/Linux support)
-% 3. Added Last Updated
-% 4. Move Title styling into .sty
-% 5. Commented .sty file.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% Known Issues:
-% 1. Overflows onto second page if any column's contents are more than the
-% vertical limit
-% 2. Hacky space on the first bullet point on the second column.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\documentclass[]{deedy-resume-openfont}
 \usepackage{fancyhdr}
  
 \pagestyle{fancy}
@@ -151,7 +149,7 @@ Last Updated on \today
 %     TITLE NAME
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\namesection{}{Harsh Shah}{ \urlstyle{same}Mumbai-400092 | 9820460609 \\  \href{https://github.com/harsh010501}{ github} | \href{mailto:harshmkvviv@gmail.com}{harshmkvviv@gmail.com}
+\namesection{}{Harsh Shah}{ \urlstyle{same}Mumbai-400092 | 9820460609 \\  \href{https://github.com/Harsh-H-Shah}{ github} | \href{mailto:harshmkvviv@gmail.com}{harshmkvviv@gmail.com}
 }
 
 
@@ -172,7 +170,7 @@ Last Updated on \today
 \subsection{Mumbai University}
 \descript{Bachelor in Engineering}
 \location{Mumbai \\
-GPA: 10.0 (1st sem)
+CGPA: 9.775 (2st sem)
 }
 \sectionsep
 
@@ -195,9 +193,9 @@ CGPA: 9.6 / 10.0}
 LinkedIn://  \href{https://www.linkedin.com/in/harsh-shah-84492a144/}{\bf Harsh Shah} \\
 Figma :// \href{https://www.figma.com/files/user/972091920433097624?fuid=972091920433097624}{\bf harsh shah} \\
 LeetCode://  \href{https://leetcode.com/harsh010501/}{\bf harsh010501} \\
-Twitter://  \href{https://twitter.com/HarshSh96633511}{\bf @HarshSh96633511} \\
-Hackerearth :// \href{https://www.hackerearth.com/@harsh010501}{\bf harsh010501} \\
+Twitter://  \href{https://twitter.com/HarshShah151}{\bf @HarshShah151} \\
 HackerRank :// \href{https://www.hackerrank.com/harsh_1501}{\bf harsh\_1501} \\
+Hackerearth :// \href{https://www.hackerearth.com/@harsh010501}{\bf harsh010501} \\
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %     COURSEWORK
@@ -230,12 +228,16 @@ HackerRank :// \href{https://www.hackerrank.com/harsh_1501}{\bf harsh\_1501} \\
 
 \section{Skills}
 \subsection{Programming}
-Reactjs \textbullet{}  Redux \\Typescript\textbullet{}  Javascript \\ Python \textbullet{} Express \\
-PostgreSQL \textbullet{} Redis \\
-Git \textbullet{} Github \\
-\location{Familiar:}
-Bootstrap \textbullet{} Framer \\ Figma \textbullet{} TailwindCSS
+\location{Languages:}
+Javascript | Typescript\\ Python | Java\\
+\location{Web:}
+Reactjs | Redux \\ Express | Firebase\\
+\location{Tools:}
+Git | Github \\ LaTeX | Bootstrap \\ Framer | TailwindCSS
 \sectionsep
+\subsection{Design}
+\location{Tools:}
+Figma | Illustrator
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %     AWARDS
@@ -254,15 +256,6 @@ Bootstrap \textbullet{} Framer \\ Figma \textbullet{} TailwindCSS
 English \textbullet{}  French \\ Hindi \textbullet{} Gujarati \\
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%     INTERESTS
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Interests}
-Painting \textbullet{} Designing \\ Swimming \textbullet{} Music \\
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -280,46 +273,25 @@ Painting \textbullet{} Designing \\ Swimming \textbullet{} Music \\
 
 \section{Organisations}
 
-\runsubsection{Devsnest}
-\descript{| Trainee }
-\location{Mar 2021 – Present }
+\runsubsection{Skinzy software Pvt Ltd}
+\descript{| Frontend developer intern}
+\location{Oct 2021 – Present | Mumbai}
 \vspace{\topsep} % Hacky fix for awkward extra vertical space
 \begin{tightemize}
-\item Frontend development - Wrote and reviewed code using Reactjs, Redux and Javascript.
-\item Practiced DSA problems and promoted peer learning in team. 
-\item Participated in 6 hackathons where I led the designing of the project.
+\item Designed and developed desktop web application DermaDesk for viewing and scheduling doctors appointments.
+\item Reviewed and implemented changes on the existing company website.
 \end{tightemize}
 \sectionsep
 
 \runsubsection{Viral Fission}
 \descript{| Marketing intern}
 \location{Jun 2021 – Present | Mumbai}
+\vspace{\topsep} % Hacky fix for awkward extra vertical space
 \begin{tightemize}
 \item Performed promotion activities for brands like Unacademy, Pepsi, CloseUp, Spotify.
 \end{tightemize}
 \sectionsep
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     Community Activity
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Community activity}
-
-\runsubsection{Google developer student clubs}
-\descript{| Core team member}
-\location{Aug 2021 – Present | Mumbai}
-\begin{tightemize}
-\item Designed and helped in organizing an event to introduce Google Developer Students Club TSEC chapter.
-\end{tightemize}
-\sectionsep
-
-\runsubsection{CodeCell}
-\descript{| Junior Committee member}
-\location{Jul 2021 – Present | Mumbai}
-\begin{tightemize}
-\item Organized an online technical event named Bidwiser. Curated questions and designed workflow of the event.
-\end{tightemize}
-\sectionsep
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %     Projects
@@ -327,19 +299,19 @@ Painting \textbullet{} Designing \\ Swimming \textbullet{} Music \\
 
 \section{Personal Projects}
 
+\runsubsection{\href{https://code-hub-2021.netlify.app/}{Codehub E-tutorial webiste}} \\
+\location{september 2021}
+Developed and designed an E-tutorial website for learning full-stack development using ReactJS, Figma, TailwindCSS and Firebase. It provides Roadmap, free E-books, online tutorial lectures and fun quizzes to learning students.
+\sectionsep
+
 \runsubsection{\href{https://asyncstore.netlify.app/}{E-commerce webiste}} \\
 \location{August 2021}
-Designed an E-commerce website along with a team of 6 developers. Created a Figma design for the website according to the basic rules of design. Design included 5 pages consisting landing, cart, address, product and orders pages.
+Designed an E-commerce website along with a team of 6 developers. Created a Figma design for the website according to the basic rules of design.
 \sectionsep
 
-\runsubsection{\href{https://async-2048.netlify.app/}{2048 game}} \\
-\location{August 2021}
-Designed a 2048 game along with a team of 4 developers. Designed the UI part using Figma, Framer and canva. Wrote and reviewed code in CSS and SASS. Applied the animations using javascript libraries such as animejs and framer motion.
-\sectionsep
-
-\runsubsection{\href{https://github.com/Team-Asyncc/Whiteboard-AsyncTeam-1}{Whiteboard}}  \\
+\runsubsection{\href{https://team-asyncc.github.io/Whiteboard-AsyncTeam-1/}{Whiteboard}}  \\
 \location{Jul 2021}
-Designed a white board using vanilla JS along with a team of 5 people. Wrote and reviewed code for CSS. Developed function for background color change. 
+Developed a white board using vanilla JS. It has features like color change, erasing, undo, save, line, shapes and delete the board.
 \sectionsep
 
 \runsubsection{\href{https://github.com/harsh010501/Star-wars-Aimbooster}{Star-wars Aimbooster}} \\
@@ -347,9 +319,41 @@ Designed a white board using vanilla JS along with a team of 5 people. Wrote and
 Developed a \href{http://www.aimbooster.com/}{Aimbooster} game using vanilla JS. It is based on shooting as many targets in the stipulated time. It has features like score display and storing high scores on local storage so you don't lose any highscore by refreshing the page.   
 \sectionsep
 
-\runsubsection{\href{https://github.com/Team-Asyncc/Brick-Breaker-Game-AsyncTeam1}{Brick-breaker game}} \\
-\location{Jun 2021}
-Designed a Brick-breaker game using vanilla JS along with a team of 5 people. Developed the design patterns using Figma and deployed them using CSS. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   PROFESSIONAL DEVELOPMENT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Professional development}
+
+\runsubsection{Devsnest}
+\descript{| Full stack web developer course }
+\location{Mar 2021 – Oct 2021 }
+\vspace{\topsep} % Hacky fix for awkward extra vertical space
+\begin{tightemize}
+\item Studied DSA, front-end and back-end web development in the project based approach course.
+\end{tightemize}
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Community Activity
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Volunteer experience}
+
+\runsubsection{Google developer student clubs}
+\descript{| Core team member}
+\location{Aug 2021 – Present | Mumbai}
+\begin{tightemize}
+\item Organized many events like introduction to GDSCs, Intro to 30 days of cloud and Advanced Git and GitHub workshop.
+\end{tightemize}
+\sectionsep
+
+\runsubsection{CodeCell}
+\descript{| Junior Committee member}
+\location{Jul 2021 – Present | Mumbai}
+\begin{tightemize}
+\item Organized an online technical event named Bidwiser.
+\end{tightemize}
 \sectionsep
 
 
