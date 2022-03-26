@@ -56,9 +56,17 @@
 % \LoadClass{article}
 
 % Package Imports
-\usepackage[hmargin=1.25cm, vmargin=0.75cm]{geometry}
+\usepackage[hmargin=1cm, vmargin=0.5cm]{geometry}
 \usepackage[hidelinks]{hyperref}
 \usepackage{fontawesome}
+
+% Href Settings
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    filecolor=magenta,      
+    urlcolor=blue,
+    }
 
 % Publications
 \usepackage{cite}
@@ -68,7 +76,7 @@
 \usepackage[usenames,dvipsnames]{xcolor}
 \definecolor{date}{HTML}{666666} 
 \definecolor{primary}{HTML}{2b2b2b} 
-\definecolor{headings}{HTML}{6A6A6A}
+\definecolor{headings}{HTML}{000000}
 \definecolor{subheadings}{HTML}{363636}
 
 % Set main fonts
@@ -110,7 +118,7 @@ Last Updated on \today
 \titleformat{\section}{\color{headings}
 \scshape\fontspec[Path = fonts/lato/]{Lato-Lig}\fontsize{16pt}{24pt}\selectfont \raggedright\uppercase}{}{0em}{}
 
-% Subeadings command
+% Subheadings command
 \titleformat{\subsection}{
 \color{subheadings}\fontspec[Path = fonts/lato/]{Lato-Bol}\fontsize{12pt}{12pt}\selectfont\bfseries\uppercase}{}{0em}{}
 
@@ -149,7 +157,7 @@ Last Updated on \today
 %     TITLE NAME
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\namesection{}{Harsh Shah}{ \urlstyle{same}Mumbai-400092 | 9820460609 \\  \href{https://github.com/Harsh-H-Shah}{ github} | \href{mailto:harshmkvviv@gmail.com}{harshmkvviv@gmail.com}
+\namesection{}{Harsh Shah}{ \urlstyle{same}Mumbai-400092 | 9820460609 \\  \href{https://github.com/Harsh-H-Shah}{GitHub} | \href{mailto:harshmkvviv@gmail.com}{harshmkvviv@gmail.com}
 }
 
 
@@ -170,7 +178,7 @@ Last Updated on \today
 \subsection{Mumbai University}
 \descript{Bachelor in Engineering}
 \location{Mumbai \\
-CGPA: 9.775 (2st sem)
+CGPA: 9.85 (3rd sem)
 }
 \sectionsep
 
@@ -243,8 +251,9 @@ Figma | Illustrator
 %     AWARDS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Awards} 
-\textbullet{} Silver Zone French \\ Language Olympiad \\ won silver medal \\ for securing 2nd rank \\ at institute level
+\section{Extra curricular} 
+\textbullet{} HackerRank 5 star problem solver\\
+\textbullet{} Won silver medal at \\Silver Zone French \\ Language Olympiad \\ for securing 2nd rank \\ at institute level
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -253,7 +262,7 @@ Figma | Illustrator
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Languages}
-English \textbullet{}  French \\ Hindi \textbullet{} Gujarati \\
+English \\ French \\ Hindi \\ Gujarati \\
 
 
 
@@ -279,7 +288,6 @@ English \textbullet{}  French \\ Hindi \textbullet{} Gujarati \\
 \vspace{\topsep} % Hacky fix for awkward extra vertical space
 \begin{tightemize}
 \item Designed and developed desktop web application DermaDesk for viewing and scheduling doctors appointments.
-\item Reviewed and implemented changes on the existing company website.
 \end{tightemize}
 \sectionsep
 
@@ -298,25 +306,38 @@ English \textbullet{}  French \\ Hindi \textbullet{} Gujarati \\
 
 \section{Personal Projects}
 
-\runsubsection{\href{https://code-hub-2021.netlify.app/}{Codehub E-tutorial webiste}} \\
+\runsubsection{Alpha Trading stock trading website}
+\href{https://alpha-trading.netlify.app/}{Web app | } \href{https://github.com/Harsh-H-Shah/Alpha-trading}{GitHub}
+\location{Dec 2021}
+\begin{tightemize}
+\item Developed a stock trading website where users can trade using demo money on real stocks in real
+time. It is developed using ReactJS, TailwindCSS and Firebase.
+\end{tightemize}
+\sectionsep
+
+\runsubsection {Codehub E-tutorial website} \href{https://code-hub-2021.netlify.app/}{Web app | } \href{https://github.com/Harsh-H-Shah/codehub}{GitHub}\\
 \location{september 2021}
-Developed and designed an E-tutorial website for learning full-stack development using ReactJS, Figma, TailwindCSS and Firebase. It provides Roadmap, free E-books, online tutorial lectures and fun quizzes to learning students.
+\begin{tightemize}
+\item Developed and designed an E-tutorial website for learning full-stack development using ReactJS, Figma, TailwindCSS and Firebase. It provides Roadmap, free E-books, online tutorial lectures and fun quizzes to learning students.
+\end{tightemize}
 \sectionsep
 
-\runsubsection{\href{https://asyncstore.netlify.app/}{E-commerce webiste}} \\
+\runsubsection {E-commerce webiste} \href{https://asyncstore.netlify.app/}{Web app | } \href{https://github.com/Team-Asyncc/async-ecommerce}{GitHub}\\
 \location{August 2021}
-Designed an E-commerce website along with a team of 6 developers. Created a Figma design for the website according to the basic rules of design.
+\begin{tightemize}
+\item Designed an E-commerce website along with a team of 6 developers. Created a Figma design for the website according to the basic rules of design.
+\end{tightemize}
 \sectionsep
 
-\runsubsection{\href{https://team-asyncc.github.io/Whiteboard-AsyncTeam-1/}{Whiteboard}}  \\
+\runsubsection{Whiteboard}
+\href{https://team-asyncc.github.io/Whiteboard-AsyncTeam-1/}{Web app | } 
+\href{https://github.com/Team-Asyncc/Whiteboard-AsyncTeam-1}{GitHub}  \\
 \location{Jul 2021}
-Developed a white board using vanilla JS. It has features like color change, erasing, undo, save, line, shapes and delete the board.
+\begin{tightemize}
+\item Developed a white board using vanilla JS. It has features like color change, erasing, undo, save, line, shapes and delete the board.
+\end{tightemize}
 \sectionsep
 
-\runsubsection{\href{https://github.com/harsh010501/Star-wars-Aimbooster}{Star-wars Aimbooster}} \\
-\location{Jun 2021}
-Developed a \href{http://www.aimbooster.com/}{Aimbooster} game using vanilla JS. It is based on shooting as many targets in the stipulated time. It has features like score display and storing high scores on local storage so you don't lose any highscore by refreshing the page.   
-\sectionsep
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   PROFESSIONAL DEVELOPMENT
@@ -350,7 +371,9 @@ Developed a \href{http://www.aimbooster.com/}{Aimbooster} game using vanilla JS.
 \descript{| Junior Committee member}
 \location{Jul 2021 – Present | Mumbai}
 \begin{tightemize}
-\item Organized an online technical event named Bidwiser.
+\item Volunteered in managing offline Git basics workshop with 100 participants.
+\item Organized an in-person 24 hour hackathon TSEC hacks 2022 with more than 200 participants.
+\item  Organized a virtual technical event named Bidwiser with 200 participants.
 \end{tightemize}
 \sectionsep
 
