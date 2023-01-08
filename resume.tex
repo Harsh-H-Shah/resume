@@ -1,382 +1,354 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Deedy - One Page Two Column Resume
-% LaTeX Template
-% Version 1.2 (16/9/2014)
-%
-% Original author:
-% Debarghya Das (http://debarghyadas.com)
-%
-% Original repository:
-% https://github.com/deedydas/Deedy-Resume
-%
-% IMPORTANT: THIS TEMPLATE NEEDS TO BE COMPILED WITH XeLaTeX
-%
-% This template uses several fonts not included with Windows/Linux by
-% default. If you get compilation errors saying a font is missing, find the line
-% on which the font is used and either change it to a font included with your
-% operating system or comment the line out to use the default font.
-% 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 
-% TODO:
-% 1. Integrate biber/bibtex for article citation under publications.
-% 2. Figure out a smoother way for the document to flow onto the next page.
-% 3. Add styling information for a "Projects/Hacks" section.
-% 4. Add location/address information
-% 5. Merge OpenFont and MacFonts as a single sty with options.
-% 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% CHANGELOG:
-% v1.1:
-% 1. Fixed several compilation bugs with \renewcommand
-% 2. Got Open-source fonts (Windows/Linux support)
-% 3. Added Last Updated
-% 4. Move Title styling into .sty
-% 5. Commented .sty file.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% Known Issues:
-% 1. Overflows onto second page if any column's contents are more than the
-% vertical limit
-% 2. Hacky space on the first bullet point on the second column.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------------------
+% Entry-level Resume in LaTeX
+% Version - v1.3
+% Last Edits - October 5, 2021
+% Author : Jayesh Sanwal
+% Reach out to me on LinkedIn(/in/jsanwal), with any suggestions, ideas, issues, etc.
+%------------------------
+
+%%-------------------------------------
+% Notes to the User here -
+% 1) Change " Author+an = {N=highlight}" in "Publications.bib", where N is the number at which your name appears
+% 2) Use "\vspace" wisely, that would change spacing, and is currently being used as a hacky fix
+% 3) Do not delete the fonts in the left side
+% 4) Use the "Rich Text" feature on Overleaf - On the top panel next to source. Makes it much easier for starters on LaTeX to use this template
+% 5) Do NOT use periods at the end of bullet points, the sample (ipsum) text might have it
+% 6) Use "maxbibnames" on this file to change the maximum number of authors on the paper (Credits: Dr. Natasha Krell) - Default is 3, but change line 92 to add authors
+
+%%-------------------------------------
+% Changes from last version (v1.3, October 5, 2021) -
+% 1) Summary statement removed, replaced with 4 keywords on top and Impact statement
+
+% Changes from last version (v1.2, August 23, 2021) -
+% 1) Changes in the Technical Skills section - renamed to just Skills
+% 2) Changed the font size for the name
+% 3) Education to the top
+%%-------------------------------------
 
 
-\documentclass[]{article}
+%%-------------------------------------
+% Changes to be made in the next version -
+% 1) Shift to Class file, make changes here
+% 2) Use a fonts folder
+% 3) Incorporate Leadership & volunteering together
+% 4) Remove \vspace based 'hacky' fixes
+%%-------------------------------------
 
-\NeedsTeXFormat{LaTeX2e}
-\DeclareOption{print}{\def\@cv@print{}}
-\DeclareOption*{%
-  \PassOptionsToClass{\CurrentOption}{article}
-}
-\ProcessOptions\relax
-% \LoadClass{article}
 
-% Package Imports
-\usepackage[hmargin=1cm, vmargin=0.5cm]{geometry}
-\usepackage[hidelinks]{hyperref}
-\usepackage{fontawesome}
+\documentclass[a4,10pt]{article}
 
-% Href Settings
-\usepackage{hyperref}
-\hypersetup{
-    colorlinks=true,
-    filecolor=magenta,      
-    urlcolor=blue,
-    }
+%%%%%%% --------------------------------------------------------------------------------------
+%%%%%%%  STARTING HERE, DO NOT TOUCH ANYTHING 
+%%%%%%% --------------------------------------------------------------------------------------
 
-% Publications
-\usepackage{cite}
-\renewcommand\refname{\vskip -1.5cm}
-
-% Color definitions
-\usepackage[usenames,dvipsnames]{xcolor}
-\definecolor{date}{HTML}{666666} 
-\definecolor{primary}{HTML}{2b2b2b} 
-\definecolor{headings}{HTML}{000000}
-\definecolor{subheadings}{HTML}{363636}
-
-% Set main fonts
-\usepackage{fontspec}
-\setmainfont[Color=primary, Path = fonts/lato/,BoldItalicFont=Lato-RegIta,BoldFont=Lato-Reg,ItalicFont=Lato-LigIta]{Lato-Lig}
-\setsansfont[Scale=MatchLowercase,Mapping=tex-text, Path = fonts/raleway/]{Raleway-ExtraLight}
-
-% Date command
-\usepackage[absolute]{textpos}
-\usepackage[UKenglish]{isodate}
-\setlength{\TPHorizModule}{1mm}
-\setlength{\TPVertModule}{1mm}
-\newcommand{\lastupdated}{\begin{textblock}{60}(155,5)
-\color{date}\fontspec[Path = fonts/raleway/]{Raleway-ExtraLight}\fontsize{8pt}{10pt}\selectfont 
-Last Updated on \today
-\end{textblock}}
-
-% Name command
-\newcommand{\namesection}[3]{
-\centering{
-\fontsize{40pt}{60pt}
-\fontspec[Path = fonts/lato/]{Lato-Hai}\selectfont #1 
-\fontspec[Path = fonts/lato/]{Lato-Lig}\selectfont #2
-} \\[5pt]
-\centering{
-\color{headings}
-\fontspec[Path = fonts/raleway/]{Raleway-Medium}\fontsize{11pt}{14pt}\selectfont #3}
-\noindent\makebox[\linewidth]{\color{headings}\rule{\paperwidth}{0.4pt}}
-\vspace{-15pt}
-}
-
-% Section seperators 
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
 \usepackage{titlesec}
-\titlespacing{\section}{0pt}{0pt}{0pt} 
-\titlespacing{\subsection}{0pt}{0pt}{0pt}
-\newcommand{\sectionsep}{\vspace{8pt}}
-
-% Headings command
-\titleformat{\section}{\color{headings}
-\scshape\fontspec[Path = fonts/lato/]{Lato-Lig}\fontsize{16pt}{24pt}\selectfont \raggedright\uppercase}{}{0em}{}
-
-% Subheadings command
-\titleformat{\subsection}{
-\color{subheadings}\fontspec[Path = fonts/lato/]{Lato-Bol}\fontsize{12pt}{12pt}\selectfont\bfseries\uppercase}{}{0em}{}
-
-\newcommand{\runsubsection}[1]{
-\color{subheadings}\fontspec[Path = fonts/lato/]{Lato-Bol}\fontsize{12pt}{12pt}\selectfont\bfseries\uppercase {#1} \normalfont}
-
-% Descriptors command
-\newcommand{\descript}[1]{
-\color{subheadings}\raggedright\scshape\fontspec[Path = fonts/raleway/]{Raleway-Medium}\fontsize{11pt}{13pt}\selectfont {#1 \\} \normalfont}
-
-% Location command
-\newcommand{\location}[1]{
-\color{headings}\raggedright\fontspec[Path = fonts/raleway/]{Raleway-Medium}\fontsize{10pt}{12pt}\selectfont {#1\\} \normalfont}
-
-% Bullet Lists with fewer gaps command
-\newenvironment{tightemize}{
-\vspace{-\topsep}\begin{itemize}\itemsep1pt \parskip0pt \parsep0pt}
-{\end{itemize}\vspace{-\topsep}}
-
+ \usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage[hidelinks]{hyperref}
 \usepackage{fancyhdr}
- 
+\usepackage{multicol}
+\usepackage{hyperref}
+\usepackage{csquotes}
+\usepackage{tabularx}
+\hypersetup{colorlinks=true,urlcolor=black}
+\usepackage[12pt]{moresize}
+\usepackage{setspace}
+\usepackage{fontspec}
+\usepackage[inline]{enumitem}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\usepackage{anyfontsize}
+
+%%%% Set Margins
+\usepackage[margin=1cm, top=1cm]{geometry}
+
+%%%% Set Fonts
+\setmainfont[
+BoldFont=SourceSansPro-Semibold.otf, %SourceSansPro-Bold.otf
+ItalicFont=SourceSansPro-RegularIt.otf
+]{SourceSansPro-Regular.otf}
+\setsansfont{SourceSansPro-Semibold.otf}
+
+%%%% Set Page
 \pagestyle{fancy}
-\fancyhf{}
- 
+\fancyhf{} 
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%%%% Set URL Style
+\urlstyle{same}
+
+%%%% Set Indentation
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+%%%% Set Secondary Color
+\definecolor{UI_blue}{RGB}{32, 64, 151}
+
+%%%% Define New Commands
+\usepackage[style=nature, maxbibnames=3]{biblatex}
+\addbibresource{Publications.bib}
+
+%%%% Bold Name in Publications
+\renewcommand*{\mkbibnamegiven}[1]{%
+\ifitemannotation{highlight}
+{\textbf{#1}}
+{#1}}
+
+\renewcommand*{\mkbibnamefamily}[1]{%
+\ifitemannotation{highlight}
+{\textbf{#1}}
+{#1}}
+
+%%%% Set Sections formatting
+\titleformat{\section}{
+\color{UI_blue} \scshape \raggedright \large 
+}{}{0em}{}[\vspace{-10pt} \hrulefill \vspace{-6pt}]
+
+%%%% Set Subtext Formatting
+\newcommand{\subtext}[1]{
+#1\par\vspace{-0.2cm}}
+
+% \newcommand{\subtextit}[1]{\vspace{0.15cm}
+% \textit{ #1 \vspace{-0.2cm}} }
+
+%%%% Set Item Spacing
+\setlist[itemize]{align=parleft,left=0pt..1em}
+
+%%%% New Itemize "Zitemize" Formatting - tighter spacing than itemize
+\newenvironment{zitemize}{
+\begin{itemize}\itemsep0pt \parskip0pt \parsep1pt}
+{\end{itemize}\vspace{-0.5cm}}
+
+
+%%%% Define Skills Bold Formatting
+\newcommand{\hskills}[1]{
+\textbf{\bfseries #1} }
+
+%%%% Set Subsection formatting
+\titleformat{\subsection}{\vspace{-0.1cm} 
+\bfseries \fontsize{11pt}{2cm}}{}{0em}{}[\vspace{-0.2cm}]
+
+%%%%%%% --------------------------------------------------------------------------------------
+%%%%%%% --------------------------------------------------------------------------------------
+%%%%%%%  END OF "DO NOT TOUCH" REGION
+%%%%%%% --------------------------------------------------------------------------------------
+%%%%%%% --------------------------------------------------------------------------------------
+
 \begin{document}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%     LAST UPDATED DATE
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\lastupdated
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%     TITLE NAME
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\namesection{}{Harsh Shah}{ \urlstyle{same}Mumbai-400092 | 9820460609 \\  \href{https://github.com/Harsh-H-Shah}{GitHub} | \href{mailto:harshmkvviv@gmail.com}{harshmkvviv@gmail.com}
-}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%     COLUMN ONE
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{minipage}[t]{0.33\textwidth} 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     EDUCATION
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Education} 
-
-\subsection{Mumbai University}
-\descript{Bachelor in Engineering}
-\location{Mumbai \\
-CGPA: 9.85 (3rd sem)
-}
-\sectionsep
-
-\subsection{Mumbai University}
-\descript{Intermediate}
-\location{May 2019 | Mumbai\\
-Higher Secondary Percent: 77\%}
-\sectionsep
-
-\subsection{MKVVIV (CBSE)}
-\location{May 2017 | Mumbai \\
-CGPA: 9.6 / 10.0}
-\sectionsep
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     LINKS
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Links}
-LinkedIn://  \href{https://www.linkedin.com/in/harsh-shah-84492a144/}{\bf Harsh Shah} \\
-Figma :// \href{https://www.figma.com/files/user/972091920433097624?fuid=972091920433097624}{\bf harsh shah} \\
-LeetCode://  \href{https://leetcode.com/harsh010501/}{\bf harsh010501} \\
-Twitter://  \href{https://twitter.com/HarshShah151}{\bf @HarshShah151} \\
-HackerRank :// \href{https://www.hackerrank.com/harsh_1501}{\bf harsh\_1501} \\
-Hackerearth :// \href{https://www.hackerearth.com/@harsh010501}{\bf harsh010501} \\
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     COURSEWORK
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% \section{Coursework}
-% \subsection{Graduate}
-% Advanced Machine Learning \\
-% Open Source Software Engineering \\
-% Advanced Interactive Graphics \\
-% Compilers + Practicum \\
-% Cloud Computing \\
-% Evolutionary Computation \\
-% Defending Computer Networks \\
-% Machine Learning \\
-% \sectionsep
-
-% \subsection{Undergraduate}
-% Information Retrieval \\
-% Operating Systems \\
-% Artificial Intelligence + Practicum \\
-% Functional Programming \\
-% Computer Graphics + Practicum \\
-% {\footnotesize \textit{\textbf{(Research Asst. \& Teaching Asst 2x) }}} \\
-% Unix Tools and Scripting \\
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     SKILLS
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Skills}
-\subsection{Programming}
-\location{Languages:}
-Javascript | Typescript\\ Python | Java\\
-\location{Web:}
-Reactjs | Redux \\ Express | Firebase\\
-\location{Tools:}
-Git | Github \\ LaTeX | Bootstrap \\ Framer | TailwindCSS
-\sectionsep
-\subsection{Design}
-\location{Tools:}
-Figma | Illustrator
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     AWARDS
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Extra curricular} 
-\textbullet{} HackerRank 5 star problem solver\\
-\textbullet{} Won silver medal at \\Silver Zone French \\ Language Olympiad \\ for securing 2nd rank \\ at institute level
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%     LANGUAGES
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Languages}
-English \\ French \\ Hindi \\ Gujarati \\
+%%%%%%% --------------------------------------------------------------------------------------
+%%%%%%%  HEADER
+%%%%%%% --------------------------------------------------------------------------------------
+\begin{center}
+    \begin{minipage}[b]{0.24\textwidth}
+    \large  %Willing to Relocate
+            {\href{https://www.github.com/harsh-h-shah/}{
+            \color{UI_blue} GitHub: @Harsh-H-Shah} } \\
+            \large \href{mailto:harshmkvviv@gmail.com}{
+            \color{UI_blue} harshmkvviv@gmail.com} 
+    \end{minipage}% 
+    \begin{minipage}[b]{0.5\textwidth}
+            \centering
+            {\Huge Harsh Shah} \\ %
+            \vspace{0.1cm}
+            % {\color{UI_blue} \Large{SDE Intern}} \\
+    \end{minipage}% 
+    \begin{minipage}[b]{0.24\textwidth}
+            \flushright \large  %Willing to Relocate
+            {\href{https://www.linkedin.com/in/harsh-h-shah/}{
+            \color{UI_blue} LinkedIn: @harsh-h-shah} } \\
+            \href{https://twitter.com/Harsh_h_shah}{
+            \color{UI_blue} Twitter: @Harsh\_h\_shah}
+    \end{minipage}   
+    
+\vspace{-0.3cm} 
+\end{center}
 
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%     COLUMN TWO
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\end{minipage} 
-\hfill
-\begin{minipage}[t]{0.66\textwidth} 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     EXPERIENCE
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Organisations}
-
-\runsubsection{Skinzy software Pvt Ltd}
-\descript{| Frontend developer intern}
-\location{Oct 2021 – Present | Mumbai}
-\vspace{\topsep} % Hacky fix for awkward extra vertical space
-\begin{tightemize}
-\item Designed and developed desktop web application DermaDesk for viewing and scheduling doctors appointments.
-\end{tightemize}
-\sectionsep
-
-\runsubsection{Viral Fission}
-\descript{| Marketing intern}
-\location{Jun 2021 – Present | Mumbai}
-\begin{tightemize}
-\item Performed promotion activities for brands like Unacademy, Pepsi, CloseUp, Spotify.
-\end{tightemize}
-\sectionsep
+%%%%%%% --------------------------------------------------------------------------------------
+%%%%%%%  EDUCATION
+%%%%%%% --------------------------------------------------------------------------------------
+\section{Education}
+\vspace{-0.1cm}
+\subsection*{Bachelor of Engineering in Computer Engineering \hfill Jun 2024 (expected)}{\normalsize \normalfont University of Mumbai, CGPA: 9.69/10 (Sem IV)}
+\vspace{-0.4cm}
+\subsection*{Higher Secondary Certificate \hfill 2019} {\normalsize \normalfont St. Rocks College of Science, Percentage: 77\%}
+\vspace{-0.4cm}
+\subsection*{Secondary School Certificate \hfill 2017} {\normalsize \normalfont MKVVIV (CBSE) , CGPA: 9.6/10} 
+\vspace{-0.5cm}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     Projects
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Personal Projects}
-
-\runsubsection{Alpha Trading stock trading website}
-\href{https://alpha-trading.netlify.app/}{Web app | } \href{https://github.com/Harsh-H-Shah/Alpha-trading}{GitHub}
-\location{Dec 2021}
-\begin{tightemize}
-\item Developed a stock trading website where users can trade using demo money on real stocks in real
-time. It is developed using ReactJS, TailwindCSS and Firebase.
-\end{tightemize}
-\sectionsep
-
-\runsubsection {Codehub E-tutorial website} \href{https://code-hub-2021.netlify.app/}{Web app | } \href{https://github.com/Harsh-H-Shah/codehub}{GitHub}\\
-\location{september 2021}
-\begin{tightemize}
-\item Developed and designed an E-tutorial website for learning full-stack development using ReactJS, Figma, TailwindCSS and Firebase. It provides Roadmap, free E-books, online tutorial lectures and fun quizzes to learning students.
-\end{tightemize}
-\sectionsep
-
-\runsubsection {E-commerce webiste} \href{https://asyncstore.netlify.app/}{Web app | } \href{https://github.com/Team-Asyncc/async-ecommerce}{GitHub}\\
-\location{August 2021}
-\begin{tightemize}
-\item Designed an E-commerce website along with a team of 6 developers. Created a Figma design for the website according to the basic rules of design.
-\end{tightemize}
-\sectionsep
-
-\runsubsection{Whiteboard}
-\href{https://team-asyncc.github.io/Whiteboard-AsyncTeam-1/}{Web app | } 
-\href{https://github.com/Team-Asyncc/Whiteboard-AsyncTeam-1}{GitHub}  \\
-\location{Jul 2021}
-\begin{tightemize}
-\item Developed a white board using vanilla JS. It has features like color change, erasing, undo, save, line, shapes and delete the board.
-\end{tightemize}
-\sectionsep
+%%%%%%% --------------------------------------------------------------------------------------
+%%%%%%%  SKILLS
+%%%%%%% --------------------------------------------------------------------------------------
+\section{Technical Skills}
+\vspace{-0.2cm}
+\begin{tabular}{p{12em} p{32em}}
+\hskills{Programming languages} & JavaScript, Python, C++, Java \\
+\hskills{Technologies/Frameworks} & ReactJS, React Native, NodeJS (ExpressJS), HTML, CSS, Svelte \\
+\hskills{Databases} & MongoDB, PostgreSQL, MySQL, Cloud Firestore \\
+\hskills{Tools} & Git, Figma, Canva, Postman  \\
+\hskills{Platforms} & GitHub, Firebase  \\
+\end{tabular}
+\vspace{-0.5cm}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%   PROFESSIONAL DEVELOPMENT
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Professional development}
-
-\runsubsection{Devsnest}
-\descript{| Full stack web developer course }
-\location{Mar 2021 – Oct 2021 }
-\begin{tightemize}
-\item Studied DSA, front-end and back-end web development in the project based approach course.
-\end{tightemize}
-\sectionsep
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     Community Activity
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Volunteer experience}
-
-\runsubsection{Google developer student clubs}
-\descript{| Core team member}
-\location{Aug 2021 – Present | Mumbai}
-\begin{tightemize}
-\item Organized many events like introduction to GDSCs, Intro to 30 days of cloud and Advanced Git and GitHub workshop.
-\end{tightemize}
-\sectionsep
-
-\runsubsection{CodeCell}
-\descript{| Junior Committee member}
-\location{Jul 2021 – Present | Mumbai}
-\begin{tightemize}
-\item Volunteered in managing offline Git basics workshop with 100 participants.
-\item Organized an in-person 24 hour hackathon TSEC hacks 2022 with more than 200 participants.
-\item  Organized a virtual technical event named Bidwiser with 200 participants.
-\end{tightemize}
-\sectionsep
+%%%%%%% --------------------------------------------------------------------------------------
+%%%%%%%  WORK EXPERIENCE
+%%%%%%% --------------------------------------------------------------------------------------
+\section{Experience}
+\vspace{-0.1cm}
+\subsection*{Skinzy Software Pvt. Ltd. {\normalsize\normalfont (Frontend Intern)} \hfill Oct 2021 --- Dec 2021} 
+    \begin{zitemize}
+        \item Designed a desktop web application DermaDesk for viewing and
+        scheduling doctors appointments.
+        \item Updated the UI of the company website by adding vertical scrolling cards, adding images and\\minimizing design asymmetry.
+    \end{zitemize}
+\vspace{-0.1cm}
+\subsection*{Viral Fission {\normalsize\normalfont (Social Media Marketing Intern)} \hfill Oct 2021 --- Dec 2021}
+    \begin{zitemize}
+        \item Performed promotional activities for brands like Pepsi and Spotify.
+        \item Created posters and videos using tools like Canva, Figma and Photoshop.
+    \end{zitemize}
+\vspace{-0.25cm}
 
 
-\end{minipage} 
-\end{document}  \documentclass[]{article}
+% %%%%%%% ----------------------------------- Role 5 ----------------------------------- %%%%%%%
+% \subsection*{Viral Fission {\normalsize\normalfont (Digital Marketing Intern)} \hfill Jun 2021 --- Dec 2021} 
+%     \begin{zitemize}
+%         \item Performed promotion activities for brands like Pepsi, CloseUp, Spotify. \item Created several posters and videos for promotion using tools like Canva, Figma and Photoshop.
+%     \end{zitemize}
+% \vspace{-0.3cm}
+    
+%%%%%%% --------------------------------------------------------------------------------------
+%%%%%%%  ACADEMIC PROJECTS
+%%%%%%% --------------------------------------------------------------------------------------
+\section{Projects}
+%%%%%%% ----------------------------------- Role 1 ----------------------------------- %%%%%%%
+\vspace{-0.1cm}
+\textbf{Rashi Pay | } \emph{React Native, TailwindCSS, ExpressJS} \textbf{\hfill Mar 2022 --- Aug 2022}
+\vspace{-0.2cm}
+    \begin{zitemize}
+        \item A digital offline payments application that caries out wallet to wallet transactions with absence of\\ any kind of networks using Bluetooth or WiFi direct.
+        \item The system relies on the public-private key based RSA cryptographic system to ensure security.
+        \item Created the application interface using React Native and connected it to the ExpressJS backend.
+    \end{zitemize}
+    
+    
+%%%%%%% ----------------------------------- Role 2 ----------------------------------- %%%%%%%
+\vspace{0.35cm}
+\textbf{Alpha trading | } \emph{ReactJS, Firebase, TailwindCSS, RapidAPI |  }{\href{https://github.com/Harsh-H-Shah/Alpha-trading}{
+            \color{UI_blue} Code}}
+            | 
+            {\href{https://alpha-trading.netlify.app/}{
+            \color{UI_blue} Demo} } \textbf{\hfill Dec 2021 --- Mar 2022} 
+\vspace{-0.2cm}
+    \begin{zitemize}
+        \item A stock trading website where users can trade using imitation money on stocks in real time.
+        \item Developed the trading interface using ReactJS. It uses RapidAPI to fetch the latest prices of stocks.
+    \end{zitemize}
+
+
+%%%%%%% ----------------------------------- Role 3 ----------------------------------- %%%%%%%
+\vspace{0.35cm}
+\textbf{CodeHub E-tutorial website | } \emph{ReactJS, Firebase, TailwindCSS |  }{\href{https://github.com/Harsh-H-Shah/codehub}{
+            \color{UI_blue} Code}}
+            | 
+            {\href{https://code-hub-2021.netlify.app/}{
+            \color{UI_blue} Demo} } \textbf{\hfill Sep 2021 --- Dec 2021}
+    \vspace{-0.2cm}
+    \begin{zitemize}
+        \item An E-learning website with well organized and easy to understand Web building tutorials for students.
+        \item Incorporated road maps, free E-books, online tutorial lectures and fun quizzes for learning students.
+        \item Authentication of the users is done using Firebase and the interface is developed using ReactJS.
+    \end{zitemize}
+\vspace{-0.25cm}
+
+
+
+%%%%%%% --------------------------------------------------------------------------------------
+%%%%%%%  VOLUNTEER EXPERIENCE
+%%%%%%% --------------------------------------------------------------------------------------
+\section{Community Activity}
+
+%%%%%% ----------------------------------- Role 6 ----------------------------------- %%%%%%%
+\vspace{-0.1cm}
+\subsection*{ Google Developer Student Clubs TSEC } 
+\vspace{-0.05cm}
+    \emph{Community Lead}\textbf{\hfill Jul 2022 --- present}
+    \begin{zitemize}
+    \vspace{-0.2cm}
+            \item One of the selected 400 leads out of 10000 applications nationally.
+            \item Leading a core team of 10 members managing a community of 500+ students.
+            \item Organized and hosted in-person technical events for over 150 students to learn about technologies.
+    \end{zitemize}
+    \vspace{0.4cm}
+    \emph{Core Team Member}\textbf{\hfill Jul 2021 --- Jun 2022}
+    \begin{zitemize}
+    \vspace{-0.2cm}
+            \item Organized in-person and virtual technical events like Introduction to GDSC TSEC, Google Cloud \\Campaign, Advanced Git and GitHub workshop and MockUpp Designathon with 850+ participants.
+    \end{zitemize}
+    \vspace{-0.05cm}
+    
+%%%%%%%
+\subsection*{ TSEC CodeCell }
+\vspace{-0.05cm}
+    \emph{Junior and Senior Committee Member}\textbf{\hfill Aug 2021 --- present}
+    \begin{zitemize}
+    \vspace{-0.25cm}
+            \item Arranged an in-person technical event named Race2Stack with 100+ participants.
+            \item Organized an in-person 24 hour hackathon TSEC Hacks 2022 with 400+ registrations.
+            \item Planned and presented a virtual technical event named Bidwiser with 200+ participants.
+    \end{zitemize}
+\vspace{-0.2cm}
+
+
+
+%%%%%%% --------------------------------------------------------------------------------------
+%%%%%%%  PUBLICATIONS
+% %%%%%%% --------------------------------------------------------------------------------------
+% \section{Publications} 
+% \renewcommand\refname{\vskip -1.5em}
+% \nocite{*}
+% \printbibliography[heading=none]
+% \vspace{-0.4cm}
+
+
+
+%%%%%%% --------------------------------------------------------------------------------------
+%%%%%%%  AWARDS & HONORS
+%%%%%%% --------------------------------------------------------------------------------------
+\section{Co-curricular Activities}
+\vspace{-0.1cm}
+\subsection*{Smart India Hackathon 2022 winner \hfill Aug 2022}
+\vspace{-0.05cm}
+\begin{zitemize}
+    \item One of the 400 winning teams out of 30000 teams nation wide.
+\end{zitemize} 
+\vspace{-0.1cm}
+\subsection*{Postman Student Expert \hfill Jul 2022}
+\vspace{-0.05cm}
+\begin{zitemize}
+    \item Completed the track of the Student Expert by developing and testing APIs on the Postman platform.
+    \end{zitemize}
+\vspace{-0.1cm}
+\subsection*{Contributor in Script Winter of Code 2021 \hfill Dec 2021 --- Feb 2022}
+\vspace{-0.05cm}
+    \begin{zitemize}
+    \item Participated as an open source contributor on 2 projects named Dezenix and online-editor.
+    \end{zitemize}
+\vspace{-0.1cm}
+    \subsection*{Devsnest Web Development and DSA course \hfill Mar 2021 --- Oct 2021}
+\vspace{-0.05cm}
+    \begin{zitemize}
+    \item Studied DSA, front-end and back-end web development in a project based
+approach course.
+    \end{zitemize}
+%%%%%%% ---------------------------- END DOC HERE ---------------------------- %%%%%%% 
+\end{document}
