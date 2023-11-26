@@ -24,10 +24,6 @@ jobs:
    container:
      image: danteev/texlive:latest
    steps:
-     - name: Mark github workspace as safe
-       run: |
-         git config --global --add safe.directory /github/workspace
-
      - name: Checkout
        uses: actions/checkout@v2
        with:
@@ -49,6 +45,10 @@ jobs:
          cp index.html build/
          mv "build/resume.pdf" "build/Harsh.pdf"
          ls build/
+
+     - name: Mark github workspace as safe
+       run: |
+         git config --global --add safe.directory /__w/resume/resume
 
      - name: Git add
        run: git add *.pdf
